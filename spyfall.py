@@ -16,5 +16,9 @@ def games():
 def new_game():
     return render_template('new_game.html')
 
+@app.route('/game.html')
+def game():
+    return render_template('game.html')
+
 if __name__ == '__main__':
     app.run(debug = True)

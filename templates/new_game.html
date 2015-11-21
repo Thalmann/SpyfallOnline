@@ -1,14 +1,7 @@
-<html>
-  <head>
-<title>Create New Game</title>
-</head>
-<body>
-<h1>Create New Game</h1>
+{% extends "layout.html" %}
+{% block body %}
 <form action="game.html">
   Name: <input type="text" name="game_name">
   <input type="submit" value="Start Game">
 </form>
-
-<a href="http://www.brunothalmann.com/" target="_blank">Copyright Bruno Thalmann 2016. All Rights Reserved.</a>
-</body>
-</html>
+{% endblock %}
