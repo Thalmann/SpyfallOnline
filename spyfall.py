@@ -12,11 +12,11 @@ def index():
 def games():
     return render_template('games.html')
 
-@app.route('/new_game.html')
+@app.route('/new_game')
 def new_game():
     return render_template('new_game.html')
 
-@app.route('/game.html')
+@app.route('/game')
 def game():
     return render_template('game.html')
 
