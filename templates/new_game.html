@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 {% block body %}
 <form method= "POST">
-  Name: <input type="text" name="game_name">
-  <input type="submit" value="Start Game">
+  {{ form.hidden_tag() }}
+  {{ form.text }}
+  {{ form.submit }}
 </form>
 {% endblock %}
