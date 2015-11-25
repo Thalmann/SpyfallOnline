@@ -11,8 +11,9 @@ app.config['SECRET_KEY'] = 'secret'
 class StartGameForm(Form):
     """Simple form when creating a new game."""
     
-    text = StringField('Name:')
-    submit = SubmitField('Start Game')
+    game_name = StringField('Game Name:')
+    username = StringField('Username:')
+    submit = SubmitField('Start Game')    
 
 @app.route('/')
 @app.route('/index')
@@ -27,8 +28,8 @@ def games():
 def new_game():
     form = StartGameForm()
     if form.validate_on_submit():
-        if form.text.data != '':
-            return render_template('game.html', game_name = form.text.data)
+        if form.game_name.data != '':
+            return render_template('game.html', game_name = form.game_name.data)
     return render_template('new_game.html', form = form)
 
 @app.route('/game')
