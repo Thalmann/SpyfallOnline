@@ -13,7 +13,12 @@ class StartGameForm(Form):
     
     game_name = StringField('Game Name:')
     username = StringField('Username:')
-    submit = SubmitField('Start Game')    
+    submit = SubmitField('Start Game')
+
+class LobbyForm(Form):
+    """"""
+    submit = SubmitField('Start Game')
+    
 
 @app.route('/')
 @app.route('/index')
@@ -31,6 +36,13 @@ def new_game():
         if form.game_name.data != '':
             return render_template('game.html', game_name = form.game_name.data)
     return render_template('new_game.html', form = form)
+
+@app.route('/lobby')
+def lobby():
+    form = LobbyForm()
+    if form.validate_on_submit():
+        return render_template('game.html')
+    return render_template('lobby.html', form=form)
 
 @app.route('/game')
 def game():
